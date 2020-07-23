@@ -34,4 +34,9 @@ public class StringCalculatorTest
 	public void newLinesHandleTest() {
 		assertEquals(calculator.Add("1\n2,3"), 6);
 	}
+	@Test
+	public void SupportDifferentDelimiter()
+	{
+		assertEquals(calculator.Add("//;\n1;2"), 3);
+	}
 }
