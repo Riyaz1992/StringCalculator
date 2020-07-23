@@ -39,4 +39,9 @@ public class StringCalculatorTest
 	{
 		assertEquals(calculator.Add("//;\n1;2"), 3);
 	}
+	@Test(expected = RuntimeException.class)
+	public void SingleNegativeNumberIsUsed()
+	{
+		calculator.Add("5,-7,3,2,4,6");
+	}
 }

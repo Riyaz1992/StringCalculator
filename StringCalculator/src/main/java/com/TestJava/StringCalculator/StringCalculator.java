@@ -1,5 +1,6 @@
 package com.TestJava.StringCalculator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.graalvm.compiler.virtual.phases.ea.PartialEscapeBlockState.Final;
@@ -14,8 +15,8 @@ public class StringCalculator
 	private String delimiter= ",|\n";
 	private final String customdelimiter= "//";
 	private int sum = 0;
-     public int Add(String numbers)
-     {
+    public int Add(String numbers)
+    {
     	 if(numbers.isEmpty())
     	 {
     		return 0;
@@ -28,7 +29,7 @@ public class StringCalculator
     	 {
     	     int index = numbers.indexOf("//")+2;
     	     delimiter = numbers.substring(index,index+1);
-    	      String excludeString = numbers.substring(numbers.indexOf("\n") + 1);
+    	     String excludeString = numbers.substring(numbers.indexOf("\n") + 1);
     	     return GetNumber(excludeString, delimiter);
     	 } 
     	 else {
@@ -42,11 +43,19 @@ public class StringCalculator
      public int GetNumber(String numbers, String delim) 
      {
     	 String[] splitNumbers = numbers.split(delim);
+    	 List<Integer> negativeNumbers = new ArrayList();
     	 for (String number: splitNumbers) {
-    		 if(!number.trim().isEmpty()) {
-			     sum += changeToInt(number);
-    		 }
+    		   if(changeToInt(number)<0)
+    		   {
+    			     negativeNumbers.add(changeToInt(number));
+    		   }
+			   sum += changeToInt(number);
 		}
+    	if(negativeNumbers.size()>0)
+    	{
+    		if(negativeNumbers.size()==1)
+    		  throw new RuntimeException("negatives not allowed"+ " " + negativeNumbers.toString());
+    	}
     	 return sum;
      }
      
