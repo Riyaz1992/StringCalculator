@@ -48,7 +48,9 @@ public class StringCalculator
     		   {
     			     negativeNumbers.add(changeToInt(number));
     		   }
-			   sum += changeToInt(number);
+    		   else if(changeToInt(number)<= 1000) {
+    			   sum += changeToInt(number);
+    		   }   
 		}
     	if(negativeNumbers.size()>0)
     	{

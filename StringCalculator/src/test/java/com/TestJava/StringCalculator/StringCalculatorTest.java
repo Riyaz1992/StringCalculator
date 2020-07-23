@@ -57,4 +57,10 @@ public class StringCalculatorTest
 	    }
 	   assertEquals("negatives not allowed-[-7, -4]",runtimeException.getMessage());
 	}
+	@Test
+	public void whenNumbersAreGreaterThan1000IsUsed() {
+		assertEquals(calculator.Add("2,1001"),2);
+	}
+	
+	
 }
