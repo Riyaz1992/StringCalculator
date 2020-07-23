@@ -44,4 +44,17 @@ public class StringCalculatorTest
 	{
 		calculator.Add("5,-7,3,2,4,6");
 	}
+	@Test
+	public void MultipleNegativeNumberIsUsed()
+	{
+	   RuntimeException runtimeException = null;
+	   try 
+	   {
+		   calculator.Add("5,-7,3,2,-4,6");
+	   } 
+	   catch (RuntimeException e) {
+		   runtimeException = e;
+	    }
+	   assertEquals("negatives not allowed-[-7, -4]",runtimeException.getMessage());
+	}
 }

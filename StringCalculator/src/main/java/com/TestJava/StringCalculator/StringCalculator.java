@@ -3,8 +3,6 @@ package com.TestJava.StringCalculator;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.graalvm.compiler.virtual.phases.ea.PartialEscapeBlockState.Final;
-
 
 /**
  * Hello world!
@@ -44,7 +42,8 @@ public class StringCalculator
      {
     	 String[] splitNumbers = numbers.split(delim);
     	 List<Integer> negativeNumbers = new ArrayList();
-    	 for (String number: splitNumbers) {
+    	 for (String number: splitNumbers) 
+    	 {
     		   if(changeToInt(number)<0)
     		   {
     			     negativeNumbers.add(changeToInt(number));
@@ -53,8 +52,7 @@ public class StringCalculator
 		}
     	if(negativeNumbers.size()>0)
     	{
-    		if(negativeNumbers.size()==1)
-    		  throw new RuntimeException("negatives not allowed"+ " " + negativeNumbers.toString());
+    		   throw new RuntimeException("negatives not allowed"+ "-" + negativeNumbers.toString());
     	}
     	 return sum;
      }
