@@ -23,4 +23,8 @@ public class StringCalculatorTest
 	public void singleValue() {
 	   assertEquals(calculator.Add("1"),1);	
 	}
+	@Test
+	public void SumOfTwoNumbers() {
+		assertEquals(calculator.Add("1,2"),3);
+	}
 }
