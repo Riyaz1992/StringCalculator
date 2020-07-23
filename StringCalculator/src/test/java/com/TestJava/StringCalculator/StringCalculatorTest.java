@@ -1,6 +1,5 @@
 package com.TestJava.StringCalculator;
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -30,5 +29,9 @@ public class StringCalculatorTest
 	@Test
 	public void SumofUnknownNumbers() {
 		assertEquals(calculator.Add("1,2,3,4"), 10);
+	}
+	@Test
+	public void newLinesHandleTest() {
+		assertEquals(calculator.Add("1\n2,3"), 6);
 	}
 }
