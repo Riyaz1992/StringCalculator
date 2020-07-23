@@ -6,6 +6,7 @@ package com.TestJava.StringCalculator;
  */
 public class StringCalculator 
 {
+	public int sum = 0;
      public int Add(String numbers)
      {
     	 if(numbers.isEmpty())
@@ -14,8 +15,14 @@ public class StringCalculator
     	 }
     	 else if (numbers.contains(",")) {
 			String [] number = numbers.split(",");
-			return Integer.parseInt(number[0])+Integer.parseInt(number[1]);
+			for (int i = 0; i < number.length; i++) {
+				sum += changeToInt(number[i]); 
+			}
+			return sum;
 		 } 
-    	 return Integer.parseInt(numbers);
+    	 return changeToInt(numbers);
+     }
+     public int changeToInt( String number) {
+    	return Integer.parseInt(number); 
      }
 }

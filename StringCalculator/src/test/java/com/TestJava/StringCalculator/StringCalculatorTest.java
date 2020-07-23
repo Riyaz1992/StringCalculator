@@ -27,4 +27,8 @@ public class StringCalculatorTest
 	public void SumOfTwoNumbers() {
 		assertEquals(calculator.Add("1,2"),3);
 	}
+	@Test
+	public void SumofUnknownNumbers() {
+		assertEquals(calculator.Add("1,2,3,4"), 10);
+	}
 }
