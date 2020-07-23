@@ -61,6 +61,17 @@ public class StringCalculatorTest
 	public void whenNumbersAreGreaterThan1000IsUsed() {
 		assertEquals(calculator.Add("2,1001"),2);
 	}
-	
+	@Test
+	public void delimitersOfLength() {
+		assertEquals(calculator.Add("//[***]\\n1***2***3"),6);
+	}
+	@Test
+	public void multipleDelimiterTest() {
+		assertEquals(calculator.Add("//[*][%]\\n1*2%3"),6);
+	}
+	@Test
+	public void multipleDelimitersWithLengthlongerThaOneChar() {
+		assertEquals(calculator.Add("//[**][%%]\\n1**2%%3"),6);
+	}
 	
 }
